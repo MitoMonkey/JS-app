@@ -19,3 +19,6 @@ document.write(minSize);
 
 let favoriteFood = 'Chocolate';
 document.write(favoriteFood);
+
+let pokemons = [{name:"picatchu", type: 'electro'}, {name:'basur', type:["water", "earth"]}];
+console.log(pokemons[1].type[0]); // will return "water"
