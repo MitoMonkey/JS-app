@@ -5,13 +5,25 @@ let pokemonList = [
 ];
 
 // print a list of the pokemon (with their height) into the DOM
-let bigComment = '';
-for (let i=0; i<pokemonList.length; i++) {
-  if (pokemonList[i].height > 1.2){
-    bigComment = ' - Wow, that’s big!';
+function printArrayDetails(list){
+  let bigComment = '';
+  for (let i=0; i<list.length; i++) {
+    if (list[i].height > 1.2){
+      bigComment = ' - Wow, that’s big!';
+    }
+    else {
+      bigComment = '';
+    }
+    document.write('<li>' + list[i].name + ' (height: ' + list[i].height + ')' + bigComment + '</li>');
   }
+}
+printArrayDetails(pokemonList);
+
+function divide(dividend, divisor){
+  if (divisor === 0) {return "You are trying to devide by zero!";}
   else {
-    bigComment = '';
-  }
-  document.write('<li>' + pokemonList[i].name + ' (height: ' + pokemonList[i].height + ')' + bigComment + '</li>');
+    return dividend / divisor;
+    // let result = dividend / divisor;
+    // return result;
+    }
 }
