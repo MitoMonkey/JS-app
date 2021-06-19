@@ -13,5 +13,5 @@ for (let i=0; i<pokemonList.length; i++) {
   else {
     bigComment = '';
   }
-  document.write(pokemonList[i].name + ' (height: ' + pokemonList[i].height + ')' + bigComment + '<br>');
+  document.write('<li>' + pokemonList[i].name + ' (height: ' + pokemonList[i].height + ')' + bigComment + '</li>');
 }
