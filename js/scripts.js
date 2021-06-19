@@ -5,6 +5,13 @@ let pokemonList = [
 ];
 
 // print a list of the pokemon (with their height) into the DOM
+let bigComment = '';
 for (let i=0; i<pokemonList.length; i++) {
-  document.write(pokemonList[i].name + ' (height: ' + pokemonList[i].height + ')' + '<br>');
+  if (pokemonList[i].height > 1.2){
+    bigComment = ' - Wow, that’s big!';
+  }
+  else {
+    bigComment = '';
+  }
+  document.write(pokemonList[i].name + ' (height: ' + pokemonList[i].height + ')' + bigComment + '<br>');
 }
