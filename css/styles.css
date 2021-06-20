@@ -64,8 +64,10 @@ footer {
   height: 30px;
 }
 .footer__item:first-child {
-  flex: 0 1 240px;
+/*  flex: 0 1 230px; */
+  padding-right: 5px;
   text-align: left;
+  height: 50%;
 }
 .footer__item img {
   height: 100%;
