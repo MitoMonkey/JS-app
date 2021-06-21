@@ -7,19 +7,28 @@ let pokemonRepository = (function () { // iife
   ];
 
   // print a list of the pokemon (with their height) into the DOM
-  function printRepository(list){
+  function printRepository(list) {
     let bigComment = '';
-    for (let i=0; i<list.length; i++) {
-      if (list[i].height > 1.2){
+    list.forEach(function(pokemon) {
+      if (pokemon.height > 1.2){
         bigComment = ' - Wow, that’s big!';
-      }
-      else {
-        bigComment = '';
-      }
-      document.write('<li>' + list[i].name + ' (height: ' + list[i].height + ')' + bigComment + '</li>');
-    }
+        }
+        else {
+          bigComment = '';
+        }
+      document.write('<li>' + pokemon.name + ' (height: ' + pokemon.height + ')' + bigComment + '</li>');
+    });
+    // for (let i=0; i<list.length; i++) {
+    //   if (list[i].height > 1.2){
+    //     bigComment = ' - Wow, that’s big!';
+    //   }
+    //   else {
+    //     bigComment = '';
+    //   }
+    //   document.write('<li>' + list[i].name + ' (height: ' + list[i].height + ')' + bigComment + '</li>');
+    // }
   }
-  function getAll {
+  function getAll() {
     return pokemonList;
   }
   function add(newPokemon) {
@@ -35,6 +44,7 @@ let pokemonRepository = (function () { // iife
     printRepo: printRepository(pokemonList)
   }
 })();
+pokemonRepository.printRepo;
 
 
 function divide(dividend, divisor){
