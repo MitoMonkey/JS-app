@@ -4,19 +4,35 @@ let pokemonRepository = (function () { // iife
     {name:'Paras', height:0.3 , type:["grass", "bug"]},
     {name:'Mr. Mime', height:1.3 , type:["psychic", "fairy"]},
   ];
+
   function getAll() {
     return pokemonList;
   }
+
   function add(newPokemon) {
-    pokemonList.push(newPokemon); // validation of data format required
+    console.log(Object.keys(newPokemon)); // just added to find out why the validation below is not working
+    if (typeof newPokemon === 'object') {
+      if (Object.keys(newPokemon) == ["name", "height", "type"]) { // somehow this condition is never true ... WHY???
+        pokemonList.push(newPokemon);
+      }
+      else {alert('You new Pokemon needs to be of the format "name: , height: , type\[s\]: ".') }
+    }
+    else {alert('Wrong datatype. Your new Pokemon needs to be an object.')}
   }
-  function remove(index){
-  //  pokemonList.push(newPokemon); // not implemented yet (may name is better than index > indexOf() )
-  }
+
+//  function remove(index){
+//    // not implemented yet (may 'name' is better than 'index' > indexOf() )
+//  }
+// function findPokemon(name) {
+//   // not implemented yet
+//   filter() // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter
+// }
+
   return {
     getAll: getAll,
-    add: add,
-    remove: remove,
+    add: add
+    // remove: remove,
+    // filter: findPokemon,
     // printRepo: printRepository(pokemonList)
   }
 })();
