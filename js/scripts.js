@@ -10,33 +10,38 @@ let pokemonRepository = (function () { // iife
   }
 
   function add(newPokemon) {
+    let expectedKeys = ["name", "height", "type"];
+    let newPokeKeys = Object.keys(newPokemon);
+    let areArraysEqual = true;
+
     // validate the datatype of the new pokemon
     if (typeof newPokemon !== 'object') {
       alert('Wrong datatype. Your new Pokemon needs to be an object.');
-      let areArraysEqual = false;
-      return;
+      areArraysEqual = false;
     }
-
-    let expectedKeys = ["name", "height", "type"];
-    let areArraysEqual = true;
-    let newPokeKeys = Object.keys(newPokemon);
 
     // validate if all 3 keys are defined (alternative: a counter in the forEach loop > compare the count at the end to expectedKeys.length)
-    if (newPokeKeys.length !== expectedKeys.length) {
-      alert('You need to specify all 3 attributes of you Pokemon: name, height and type.');
-      let areArraysEqual = false;
-      return;
-    }
+    // if (newPokeKeys.length !== expectedKeys.length) {
+    //   alert('You need to specify all 3 attributes of you Pokemon: name, height and type.');
+    //   let areArraysEqual = false;
+    //   return;
+    // }
 
-    // validate if the individual keys are correct
+    // validate if the individual keys of the new pokemon are correct
     newPokeKeys.forEach(function(key) {
       if (!expectedKeys.includes(key)) {
         alert('\"' + key + '\" is not a valid attribute for your Pokemon! (Correct example: \{name: \'Pokemax\', height: 1.3, type: \[\'fairy\', \'tale\'\]\} )');
-        let areArraysEqual = false;
-        return;
+        areArraysEqual = false;
       }
     });
-    // Optimal would be a validation of all keys and specific alert telling which one is missing or wrong
+
+    // validation if all expected keys are set
+    expectedKeys.forEach(function(key) {
+      if (!newPokeKeys.includes(key)) {
+        alert('You need to specify the \"' + key + '\" of your new Pokemon! (Correct example: \{name: \'Pokemax\', height: 1.3, type: \[\'fairy\', \'tale\'\]\} )');
+        areArraysEqual = false;
+      }
+    });
 
     if (areArraysEqual = true) { pokemonList.push(newPokemon); }
   }
