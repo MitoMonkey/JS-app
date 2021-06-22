@@ -10,15 +10,37 @@ let pokemonRepository = (function () { // iife
   }
 
   function add(newPokemon) {
-    console.log(Object.keys(newPokemon)); // just added to find out why the validation below is not working
-    if (typeof newPokemon === 'object') {
-      if (Object.keys(newPokemon) == ["name", "height", "type"]) { // somehow this condition is never true ... WHY???
-        pokemonList.push(newPokemon);
-      }
-      else {alert('You new Pokemon needs to be of the format "name: , height: , type\[s\]: ".') }
+    // validate the datatype of the new pokemon
+    if (typeof newPokemon !== 'object') {
+      alert('Wrong datatype. Your new Pokemon needs to be an object.');
+      let areArraysEqual = false;
+      return;
     }
-    else {alert('Wrong datatype. Your new Pokemon needs to be an object.')}
+
+    let expectedKeys = ["name", "height", "type"];
+    let areArraysEqual = true;
+    let newPokeKeys = Object.keys(newPokemon);
+
+    // validate if all 3 keys are defined (alternative: a counter in the forEach loop > compare the count at the end to expectedKeys.length)
+    if (newPokeKeys.length !== expectedKeys.length) {
+      alert('You need to specify all 3 attributes of you Pokemon: name, height and type.');
+      let areArraysEqual = false;
+      return;
+    }
+
+    // validate if the individual keys are correct
+    newPokeKeys.forEach(function(key) {
+      if (!expectedKeys.includes(key)) {
+        alert('\"' + key + '\" is not a valid attribute for your Pokemon! (Correct example: \{name: \'Pokemax\', height: 1.3, type: \[\'fairy\', \'tale\'\]\} )');
+        let areArraysEqual = false;
+        return;
+      }
+    });
+    // Optimal would be a validation of all keys and specific alert telling which one is missing or wrong
+
+    if (areArraysEqual = true) { pokemonList.push(newPokemon); }
   }
+// Example how to add a new Pokemon: pokemonRepository.add({name: 'testpoke', height: 4, type: "banana"});
 
 //  function remove(index){
 //    // not implemented yet (may 'name' is better than 'index' > indexOf() )
@@ -62,12 +84,6 @@ printRepository(pokemonRepository.getAll());
   //   }
   //   document.write('<li>' + list[i].name + ' (height: ' + list[i].height + ')' + bigComment + '</li>');
   // }
-
-
-// pokemonRepository.add({name: 'testpoke', height: 4, type: "banana"});
-
-
-
 
 function divide(dividend, divisor){
   if (divisor === 0) {return "You are trying to devide by zero!";}
