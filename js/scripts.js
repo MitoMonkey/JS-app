@@ -1,4 +1,5 @@
-let pokemonRepository = (function () { // iife
+
+let pokemonRepository = (function () { // iife (to separate the variables inside from outside)
   let pokemonList = [
     {name:"Butterfree", height:1.1 , type: ["bug", "flying"]},
     {name:'Paras', height:0.3 , type:["grass", "bug"]},
@@ -20,13 +21,6 @@ let pokemonRepository = (function () { // iife
       areArraysEqual = false;
     }
 
-    // validate if all 3 keys are defined (alternative: a counter in the forEach loop > compare the count at the end to expectedKeys.length)
-    // if (newPokeKeys.length !== expectedKeys.length) {
-    //   alert('You need to specify all 3 attributes of you Pokemon: name, height and type.');
-    //   let areArraysEqual = false;
-    //   return;
-    // }
-
     // validate if the individual keys of the new pokemon are correct
     newPokeKeys.forEach(function(key) {
       if (!expectedKeys.includes(key)) {
@@ -47,6 +41,20 @@ let pokemonRepository = (function () { // iife
   }
 // Example how to add a new Pokemon: pokemonRepository.add({name: 'testpoke', height: 4, type: "banana"});
 
+// v2 of the add function: MUCH BETTER, old version is just still active because I want to understand why it doesn't work correctly
+  function add_v2(pokemon) {
+    if (
+      typeof pokemon === "object" &&
+      "name" in pokemon &&
+      "height" in pokemon &&
+      "types" in pokemon
+    ) {
+      repository.push(pokemon);
+    } else {
+      alert("Pokemon format is not correct! Correct example: \{name: \'Pokemax\', height: 1.3, type: \[\'fairy\', \'tale\'\]\}");
+    }
+  }
+
 //  function remove(index){
 //    // not implemented yet (may 'name' is better than 'index' > indexOf() )
 //  }
@@ -55,9 +63,20 @@ let pokemonRepository = (function () { // iife
 //   filter() // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter
 // }
 
+function addListItem(pokemon) {
+  let repoList = document.querySelector('.pokemon-list');
+  let listItem = document.createElement('li');
+  let button = document.createElement('button');
+  button.innerText = pokemon.name;
+  button.classList.add('repoItemButton');
+  listItem.appendChild(button);
+  repoList.appendChild(listItem);
+}
+
   return {
     getAll: getAll,
-    add: add
+    add: add,
+    addListItem: addListItem
     // remove: remove,
     // filter: findPokemon,
     // printRepo: printRepository(pokemonList)
@@ -65,6 +84,21 @@ let pokemonRepository = (function () { // iife
 })();
 
 // print a list of the pokemon (with their height) into the DOM
+
+// v4 of pokemon list. Almost like v3, but shorter
+pokemonRepository.getAll().forEach(function(pokemon){
+  pokemonRepository.addListItem(pokemon);
+});
+
+// v3 of the pokemon list with adding list elements and buttons to the DOM
+// function printRepository(list) {
+//   list.forEach(function(pokemon) {
+//     pokemonRepository.addListItem(pokemon);
+//   });
+// }
+// printRepository(pokemonRepository.getAll());
+
+// v2 of the pokemon list with forEach & document.write
 function printRepository(list) {
   let bigComment = '';
   list.forEach(function(pokemon) {
@@ -79,7 +113,7 @@ function printRepository(list) {
 }
 printRepository(pokemonRepository.getAll());
 
-// old version of the pokemon list with a for loop:
+// v1 of the pokemon list with a for loop:
   // for (let i=0; i<list.length; i++) {
   //   if (list[i].height > 1.2){
   //     bigComment = ' - Wow, that’s big!';
@@ -89,12 +123,3 @@ printRepository(pokemonRepository.getAll());
   //   }
   //   document.write('<li>' + list[i].name + ' (height: ' + list[i].height + ')' + bigComment + '</li>');
   // }
-
-function divide(dividend, divisor){
-  if (divisor === 0) {return "You are trying to devide by zero!";}
-  else {
-    return dividend / divisor;
-    // let result = dividend / divisor;
-    // return result;
-    }
-}
