@@ -63,15 +63,19 @@ let pokemonRepository = (function () { // iife (to separate the variables inside
 //   filter() // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter
 // }
 
-function addListItem(pokemon) {
-  let repoList = document.querySelector('.pokemon-list');
-  let listItem = document.createElement('li');
-  let button = document.createElement('button');
-  button.innerText = pokemon.name;
-  button.classList.add('repoItemButton');
-  listItem.appendChild(button);
-  repoList.appendChild(listItem);
-}
+  function addListItem(pokemon) {
+    let repoList = document.querySelector('.pokemon-list');
+    let listItem = document.createElement('li');
+    let button = document.createElement('button');
+    button.innerText = pokemon.name;
+    button.classList.add('repoItemButton');
+    listItem.appendChild(button);
+    repoList.appendChild(listItem);
+  }
+
+  function showDetails(pokemon) {
+    console.log(pokemon);
+  }
 
   return {
     getAll: getAll,
