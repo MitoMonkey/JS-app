@@ -71,6 +71,10 @@ let pokemonRepository = (function () { // iife (to separate the variables inside
     button.classList.add('repoItemButton');
     listItem.appendChild(button);
     repoList.appendChild(listItem);
+
+    button.addEventListener('click', function(){
+      showDetails(pokemon);
+    });
   }
 
   function showDetails(pokemon) {
