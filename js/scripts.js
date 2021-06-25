@@ -63,6 +63,16 @@ let pokemonRepository = (function () { // iife (to separate the variables inside
 //   filter() // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter
 // }
 
+  function buttonClick (button, pokemon) {
+    button.addEventListener('click', function(){
+      showDetails(pokemon);
+    });
+  }
+
+  function showDetails(pokemon) {
+    console.log(pokemon);
+  }
+
   function addListItem(pokemon) {
     let repoList = document.querySelector('.pokemon-list');
     let listItem = document.createElement('li');
@@ -71,14 +81,7 @@ let pokemonRepository = (function () { // iife (to separate the variables inside
     button.classList.add('repoItemButton');
     listItem.appendChild(button);
     repoList.appendChild(listItem);
-
-    button.addEventListener('click', function(){
-      showDetails(pokemon);
-    });
-  }
-
-  function showDetails(pokemon) {
-    console.log(pokemon);
+    buttonClick(button, pokemon);
   }
 
   return {
