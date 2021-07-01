@@ -24,7 +24,7 @@ body
   font-weight: var(--font-weight);
   font-size: var(--font-size);
   line-height: var(--line-height);
-} */
+}
 
 h1 {
   font-size: 30px;
@@ -79,7 +79,7 @@ footer {
   height: 50px;
 }
 .footer__item {
-  height: 30px;
+  height: 50px;
 }
 .footer__item:first-child {
 /*  flex: 0 1 230px; */

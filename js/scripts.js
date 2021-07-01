@@ -10,7 +10,7 @@ let pokemonRepository = (function () { // iife (to separate the variables inside
     return pokemonList;
   }
 
-  function add(newPokemon) {
+  function add_v1(newPokemon) { // this first attemt is not in use anymore, but kept here for documentation
     let expectedKeys = ["name", "height", "type"];
     let newPokeKeys = Object.keys(newPokemon);
     let areArraysEqual = true;
@@ -37,12 +37,14 @@ let pokemonRepository = (function () { // iife (to separate the variables inside
       }
     });
 
-    if (areArraysEqual = true) { pokemonList.push(newPokemon); }
+    // To avoid double alerts when a key is wrong, the some() method could be used instead of forEach(). See https://www.w3schools.com/jsref/jsref_some.asp
+
+    if (areArraysEqual) { pokemonList.push(newPokemon); }
   }
 // Example how to add a new Pokemon: pokemonRepository.add({name: 'testpoke', height: 4, type: "banana"});
 
 // v2 of the add function: MUCH BETTER, old version is just still active because I want to understand why it doesn't work correctly
-  function add_v2(pokemon) {
+  function add(pokemon) {
     if (
       typeof pokemon === "object" &&
       "name" in pokemon &&
@@ -94,7 +96,7 @@ let pokemonRepository = (function () { // iife (to separate the variables inside
   }
 })();
 
-// print a list of the pokemon (with their height) into the DOM
+// print a list of the pokemon (with their height) into the DOM (and ofc onto the page)
 
 // v4 of pokemon list. Almost like v3, but shorter
 pokemonRepository.getAll().forEach(function(pokemon){
