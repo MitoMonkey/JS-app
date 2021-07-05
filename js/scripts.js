@@ -80,6 +80,7 @@ function add(pokemon) {
   }
 
   let modalContainer = document.querySelector('#modal-container');
+  let dialogPromiseReject; // set in the showDialog function
 
   function showModal(title, text) {
     // Clear all existing modal content
@@ -110,10 +111,66 @@ function add(pokemon) {
 
   function hideModal() {
     modalContainer.classList.remove('is-visible');
+    
+    if (dialogPromiseReject) {
+      dialogPromiseReject();
+      dialogPromiseReject = null;
+    }
+  }
+
+  function showDialog(title, text) { // use the modal and extend it to show a dialog
+    showModal(title, text);
+    let modal = modalContainer.querySelector('.modal');
+    
+    // add a confirm and cancel button to the modal
+    let confirmButton = document.createElement('button');
+    confirmButton.classList.add('modal-confirm');
+    confirmButton.innerText = 'Confirm';
+  
+    let cancelButton = document.createElement('button');
+    cancelButton.classList.add('modal-cancel');
+    cancelButton.innerText = 'Cancel';
+  
+    modal.appendChild(confirmButton);
+    modal.appendChild(cancelButton);
+  
+    // We want to focus the confirmButton so that the user can simply press Enter
+    confirmButton.focus();
+
+    return new Promise((resolve, reject) => {
+      cancelButton.addEventListener('click', hideModal);
+      confirmButton.addEventListener('click', () => {
+        dialogPromiseReject = null; // Reset this
+        hideModal();
+        resolve();
+      });
+    
+      // This can be used to reject from the hideModal function
+      dialogPromiseReject = reject;
+
+      /* depricated v1 - Problem with this: if the user closes the modal without confirming or canceling (e.g., with the Esc key or Close button), the promise will neither resolve nor reject.
+      cancelButton.addEventListener('click', () => {
+        hideModal();
+        reject();
+      }); 
+      confirmButton.addEventListener('click', () => {
+        hideModal();
+        resolve();
+      })
+      */
+
+    });
   }
 
   document.querySelector('#show-modal').addEventListener('click', () => {
     showModal('Modal title', 'This is the modal content!');
+  });
+  document.querySelector('#show-dialog').addEventListener('click', () => {
+    showDialog('Confirm action', 'Are you sure you want to do this?').then(function() {
+        alert('confirmed!'); // What could happen here next is to send a DELETE request to the server
+      }, () => {
+        alert('not confirmed');
+      });
   });
 
   // hide the modal when user presses ESC key
@@ -122,7 +179,7 @@ function add(pokemon) {
       hideModal();  
     }
   });
-
+  // hide the modal when a user clicks in the container (outside the modal)
   modalContainer.addEventListener('click', (e) => {
     // This is also triggered when clicking INSIDE the modal
     // But we only want to close if the user clicks directly on the overlay
