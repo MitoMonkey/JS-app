@@ -16,4 +16,5 @@ For this Pokedéx app:
 * Project dependencies (e.g., JavaScript version, ESLint rules)
   * JSlint 1.5.1 > IS NOT WORKING CORRECTLY YET!!!
 * Which API the project uses
-  * list of open APIs: https://public-apis.xyz/
+  * ( list of open APIs: https://public-apis.xyz/
+  * in use: https://pokeapi.co/
