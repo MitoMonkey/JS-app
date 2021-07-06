@@ -16,8 +16,8 @@ function add(pokemon) {
   pokemonList.push(pokemon);
 }
 
-//  function remove(index){
-//    // not implemented yet (may 'name' is better than 'index' > indexOf() )
+//  function remove(name){
+//    // not implemented yet > indexOf(name)
 //  }
 // function findPokemon(name) {
 //   // not implemented yet
@@ -32,7 +32,10 @@ function add(pokemon) {
 
   function showDetails(pokemon) {
     loadDetails(pokemon).then(function () {
-      console.log(pokemon);
+      // console.log(pokemon);
+      let modalText = 'Height: ' + pokemon.height;
+      // <img src="http://wikipedia.com/static/favicon/wikipedia.ico" alt="Wikipedia Favicon"></img>
+      showModal(pokemon.name, modalText, pokemon.imageUrl);
     });
   }
 
@@ -45,7 +48,7 @@ function add(pokemon) {
     button.classList.add('repoItemButton');
     listItem.appendChild(button);
     repoList.appendChild(listItem);
-    buttonClick(button, pokemon);
+    buttonClick(button, pokemon); //add the eventListener
   }
 
 // load the list of pokemon from the API
@@ -82,7 +85,7 @@ function add(pokemon) {
   let modalContainer = document.querySelector('#modal-container');
   let dialogPromiseReject; // set in the showDialog function
 
-  function showModal(title, text) {
+  function showModal(title, text, imgUrl) {
     // Clear all existing modal content
     modalContainer.innerHTML = '';
 
@@ -101,9 +104,14 @@ function add(pokemon) {
     let contentElement = document.createElement('p');
     contentElement.innerText = text;
 
+    let imgElement = document.createElement('img');
+    imgElement.src = imgUrl;
+    imgElement.alt = 'picture of' + title;
+
     modal.appendChild(closeButtonElement);
     modal.appendChild(titleElement);
     modal.appendChild(contentElement);
+    modal.appendChild(imgElement);
     modalContainer.appendChild(modal);
 
     modalContainer.classList.add('is-visible');
@@ -119,7 +127,7 @@ function add(pokemon) {
   }
 
   function showDialog(title, text) { // use the modal and extend it to show a dialog
-    showModal(title, text);
+    showModal(title, text); // argument "imgUrl" may be missing
     let modal = modalContainer.querySelector('.modal');
     
     // add a confirm and cancel button to the modal
@@ -162,6 +170,8 @@ function add(pokemon) {
     });
   }
 
+  /* 
+  // these test buttons are deactivated. Modal should show when user clicks on a pokemon.
   document.querySelector('#show-modal').addEventListener('click', () => {
     showModal('Modal title', 'This is the modal content!');
   });
@@ -172,6 +182,7 @@ function add(pokemon) {
         alert('not confirmed');
       });
   });
+  */
 
   // hide the modal when user presses ESC key
   window.addEventListener('keydown', (e) => {

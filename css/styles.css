@@ -99,8 +99,10 @@ h3 {
   color:#555;
   padding: 15px;
   width: 100%;
-  max-width: 700px;
+  max-width: 300px;
   text-align: left;
+  border-radius: 5px;
+  box-shadow: 5px, 5px, black;
 }
 .modal-close {
   float: right;
@@ -117,11 +119,15 @@ h3 {
 .modal p {
   margin-bottom: 0;
 }
+.modal img {
+  display: grid;
+  margin: auto;
+}
 .modal-confirm {
-  
+  /* styling of the dialog confirm button */
 }
 .modal-cancel {
-  
+  /* styling of the dialog cancel button */
 }
 
 
