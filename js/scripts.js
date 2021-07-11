@@ -153,7 +153,8 @@ function add(pokemon) {
         resolve();
       });
     
-      // This can be used to reject from the hideModal function
+      // This can be used to reject from the hideModal function (eg when pressing ESC key)
+      // will not be executed if the confirmButton is clicked
       dialogPromiseReject = reject;
 
       /* depricated v1 - Problem with this: if the user closes the modal without confirming or canceling (e.g., with the Esc key or Close button), the promise will neither resolve nor reject.
