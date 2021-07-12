@@ -48,7 +48,22 @@
       alert("Pokemon format is not correct! Correct example: \{name: \'Pokemax\', height: 1.3, type: \[\'fairy\', \'tale\'\]\}");
     }
   }
+
+// Modal / Dialog testing / development buttons
+  // these test buttons are deactivated. Modal should show when user clicks on a pokemon.
+  document.querySelector('#show-modal').addEventListener('click', () => {
+    showModal('Modal title', 'This is the modal content!');
+  });
+  document.querySelector('#show-dialog').addEventListener('click', () => {
+    showDialog('Confirm action', 'Are you sure you want to do this?').then(function() {
+        alert('confirmed!'); // What could happen here next is to send a DELETE request to the server
+      }, () => {
+        alert('not confirmed');
+      });
+  });
 */
+
+
 // OUTSIDE THE IIFE
 
 // v4 of pokemon list. Almost like v3, but shorter

@@ -171,20 +171,6 @@ function add(pokemon) {
     });
   }
 
-  /* 
-  // these test buttons are deactivated. Modal should show when user clicks on a pokemon.
-  document.querySelector('#show-modal').addEventListener('click', () => {
-    showModal('Modal title', 'This is the modal content!');
-  });
-  document.querySelector('#show-dialog').addEventListener('click', () => {
-    showDialog('Confirm action', 'Are you sure you want to do this?').then(function() {
-        alert('confirmed!'); // What could happen here next is to send a DELETE request to the server
-      }, () => {
-        alert('not confirmed');
-      });
-  });
-  */
-
   // hide the modal when user presses ESC key
   window.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && modalContainer.classList.contains('is-visible')) {
