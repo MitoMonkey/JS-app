@@ -15,6 +15,7 @@ For this Pokedéx app:
 * How to get the project running
 * Project dependencies (e.g., JavaScript version, ESLint rules)
   * JSlint 1.5.1 > IS NOT WORKING CORRECTLY YET!!!
+  * Frameworks: jQuery first, then Popper.js, then Bootstrap JS
 * Which API the project uses
   * ( list of open APIs: https://public-apis.xyz/
   * in use: https://pokeapi.co/
