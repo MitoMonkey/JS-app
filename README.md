@@ -11,7 +11,12 @@ Useful links:
 * https://pokedex.org/
 
 For this Pokedéx app:
-* Project description
+* Project description: This is a strudy project with no actual use. The study goals are
+  * created a small list of pokemon as an object and implement functions to print the list to the console as well as add a new pokemon
+  * substitut the list by data from an external API
+  * create DOM elements (a list of buttons) for each element from the API
+  * manually create a modal and a dialog window that shows name, height and picture of a pokemon when clicked
+  * then bootstrap was integrated and all functions and styles adapted
 * How to get the project running
 * Project dependencies (e.g., JavaScript version, ESLint rules)
   * JSlint 1.5.1 > IS NOT WORKING CORRECTLY YET!!!
