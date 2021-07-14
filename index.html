@@ -13,9 +13,13 @@
 
   
   <body>
-    <main>
-      <h1>Pokédex JS App</h1>
-      <div>
+    <main class="container">
+      <div class="row">
+        <h1 class="h1">Pokédex JS App</h1>
+      </div>
+
+      <!-- button to test the modal -->
+      <div class="row">
         <!-- <button id='show-modal'>Show modal</button>
         <button id='show-dialog'>Show dialog</button> -->
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
@@ -47,19 +51,23 @@
         </div>
       </div>
 
-      <!-- list of 150 pokemon, each shown as a button -->
-      <ul class="pokemonListBox pokemon-list">
-        <script src="https://cdn.jsdelivr.net/npm/promise-polyfill@8/dist/polyfill.min.js"></script>
-        <!-- the local version would be: <script src="js/promise-polyfill.js"></script> -->
-        <script src="js/fetch-polyfill.js"></script>
-        <script src="js/scripts.js"></script>
-      </ul>
+      <!-- list of pokemon, each shown as a button -->
+      <div class="row list-group">
+        <ul class="list-unstyled pokemonListBox pokemon-list">
+          <script src="https://cdn.jsdelivr.net/npm/promise-polyfill@8/dist/polyfill.min.js"></script>
+          <!-- the local version would be: <script src="js/promise-polyfill.js"></script> -->
+          <script src="js/fetch-polyfill.js"></script>
+          <script src="js/scripts.js"></script>
+        </ul>
+    </div>
 
     </main>
 
-    <footer>
+    <footer class="container">
+      <div class="row">
         <span class="footer__item">Find the project on Github:   </span>
         <a href="https://github.com/MitoMonkey/JS-app" target="_blank" class="footer__item"><img src="img/github_logo.svg" alt="Github icon"></a>
+      </div>
     </footer>
     
     <!-- Frameworks: jQuery first, then Popper.js, then Bootstrap JS -->

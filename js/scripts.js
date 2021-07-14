@@ -27,6 +27,7 @@ function add(pokemon) {
   function buttonClick (button, pokemon) {
     button.addEventListener('click', function(){
       showDetails(pokemon);
+      // add/toggle the class='active' to the button ? > remove it when modal is closed
     });
   }
 
@@ -41,14 +42,29 @@ function add(pokemon) {
 
   // creating a button as li element for each pokemon
   function addListItem(pokemon) {
+    
+    /* DRAFT for jQuery & Bootstrap version
+    let repoList = $('.pokemon-list');
+    let button = $('<button type="button">' + pokemon.name + '</button>');
+    button.addClass('repoItemButton', 'list-group-item', 'list-group-item-action', 'btn', 'btn-info', 'text-center', 'col-3');
+    let listItem = $('<li></li>');
+    listItem.append(button);
+    repoList.append(listItem);
+
+    buttonClick(button, pokemon); //add the eventListener
+    */
+
+    
     let repoList = document.querySelector('.pokemon-list');
     let listItem = document.createElement('li');
     let button = document.createElement('button');
     button.innerText = pokemon.name;
-    button.classList.add('repoItemButton');
+    button.classList.add('repoItemButton', 'list-group-item', 'list-group-item-action', 'btn', 'btn-info', 'text-center', 'col-3');
+    button.setAttribute("type", "button");
     listItem.appendChild(button);
     repoList.appendChild(listItem);
     buttonClick(button, pokemon); //add the eventListener
+    
   }
 
 // load the list of pokemon from the API
