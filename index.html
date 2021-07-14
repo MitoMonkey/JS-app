@@ -15,17 +15,46 @@
   <body>
     <main>
       <h1>Pokédex JS App</h1>
-      <!-- <div>
-        <button id='show-modal'>Show modal</button>
-        <button id='show-dialog'>Show dialog</button>
-      </div> -->
-      <div id='modal-container'></div>
+      <div>
+        <!-- <button id='show-modal'>Show modal</button>
+        <button id='show-dialog'>Show dialog</button> -->
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+          Launch demo modal
+        </button>
+      </div> 
+      
+      <!-- Custom modal 
+      <div id='modal-container'></div> -->
+
+      <!-- Bootstrap Modal -->
+      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              ...
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- list of 150 pokemon, each shown as a button -->
       <ul class="pokemonListBox pokemon-list">
         <script src="https://cdn.jsdelivr.net/npm/promise-polyfill@8/dist/polyfill.min.js"></script>
         <!-- the local version would be: <script src="js/promise-polyfill.js"></script> -->
         <script src="js/fetch-polyfill.js"></script>
         <script src="js/scripts.js"></script>
       </ul>
+
     </main>
 
     <footer>

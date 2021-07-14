@@ -9,10 +9,12 @@
   --heading-font-weight: 700;
 }
 
+/* 
 * {
-  box-sizing: border-box; /* force the padding and border to be included in the final specified width rather than being added on top, with the width of the item itself changing to accommodate the padding and border */
+  box-sizing: border-box; /* force the padding and border to be included in the final specified width rather than being added on top, with the width of the item itself changing to accommodate the padding and border * /
   font-family: 'Libre Baskerville', sans-serif;
 }
+*/
 
 body
 {
@@ -20,12 +22,13 @@ body
   padding: var(--padding);
   text-align: center;
   background: var(--page-background);
-  color: var(--text-color);
+  /* color: var(--text-color); 
   font-weight: var(--font-weight);
   font-size: var(--font-size);
-  line-height: var(--line-height);
+  line-height: var(--line-height); */
 }
 
+/*
 h1 {
   font-size: 30px;
   font-weight: var(--heading-font-weight);
@@ -39,6 +42,7 @@ h3 {
   font-size: 18px;
   font-weight: var(--heading-font-weight);
 }
+*/
 
 .pokemonListBox {
   background: var(--light-green);
@@ -70,8 +74,10 @@ h3 {
   opacity: 0.8;
 }
 
+/* 
+/* styling of my custom modal * /
 
-/* hide modal by default */
+/* hide modal by default * /
 #modal-container {
   display: none;
 }
@@ -84,10 +90,10 @@ h3 {
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.5);
-  z-index: 999; /* to show it above other content */
-  overflow: auto; /* to allow scrolling if the screen is not high enough*/
+  z-index: 999; /* to show it above other content  * /
+  overflow: auto; /* to allow scrolling if the screen is not high enough * /
   
-  /* this is used to center the modal */
+  /* center the modal * /
   display: grid;
   text-align: center;
 }
@@ -123,12 +129,20 @@ h3 {
   display: grid;
   margin: auto;
 }
+
+/* modal button classes not used yet, but assigned in JS to the buttons of the modal * /
 .modal-confirm {
-  /* styling of the dialog confirm button */
+  /* styling of the dialog confirm button * /
 }
 .modal-cancel {
-  /* styling of the dialog cancel button */
+  /* styling of the dialog cancel button * /
 }
+*/
+
+/* styling of the bootstrap modal 
+modal {
+  color: #555;
+} */
 
 
 footer {

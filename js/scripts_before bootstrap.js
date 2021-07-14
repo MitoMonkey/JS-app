@@ -5,7 +5,7 @@ let pokemonRepository = (function () { // IIFE (to separate the variables inside
    // {name:'Paras', height:0.3 , type:["grass", "bug"]},
    // {name:'Mr. Mime', height:1.3 , type:["psychic", "fairy"]},
   ];
-  let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=50';
+  let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
 
   function getAll() {
     return pokemonList;
@@ -82,37 +82,6 @@ function add(pokemon) {
     });
   }
 
-  function showModal(item) {
-    let modalBody = $('.modal-body');
-    let modalHeader = $('.modal-header');
-    let modalTitle = $('.modal-title');
-
-    // empty the modal
-    modalBody.empty();
-    modalTitle.empty();
-
-    let name = $('<h1>' + item.name + '</h1>');
-    let imgFront =$("<img class='modal-img' style='width:50%'>");
-    imgFront.attr('src', item.imageUrlFront);
-    let imgBack =$("<img class='modal-img' style='width:50%'>");
-    imgBack.attr('src', item.imageUrlBack);
-    let height = $("<p>" + 'Height: ' + item.height + '</p>');
-    let weight = $('<p>' + 'Weight: ' + item.weight + '</p>')
-    let types = $('<p>' + 'Types: ' + item.types + '</p>');
-    let abilities = $('<p>' + 'Abilities: ' + item.abilities + '</p>');
-
-    modalTitle.append(name);
-    modalBody.append(imgFront);
-    modalBody.append(imgBack);
-    modalBody.append(height);
-    modalBody.append(weight);
-    modalBody.append(types);
-    modalBody.append(abilities);
-  }
-
-
-  /* depricated modal and dialog functions from before bootstrap
-
   let modalContainer = document.querySelector('#modal-container');
   let dialogPromiseReject; // set in the showDialog function
 
@@ -147,7 +116,6 @@ function add(pokemon) {
 
     modalContainer.classList.add('is-visible');
   }
-  
 
   function hideModal() {
     modalContainer.classList.remove('is-visible');
@@ -198,7 +166,7 @@ function add(pokemon) {
         hideModal();
         resolve();
       })
-      * /
+      */
 
     });
   }
@@ -218,8 +186,6 @@ function add(pokemon) {
       hideModal();
     }
   });
-
-  */
 
   return {
     getAll: getAll,
