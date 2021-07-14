@@ -7,24 +7,17 @@ h1, h3 {
 }
 
 
-/* layout filter pokemon 
+/* layout filter pokemon */
 .form-control {
-  background-color: #4caf50; /* Green * /
-  border: none;
-  color: white;
-  padding: 16px 16px;
   text-align: center;
-  text-decoration: none;
   display: inline-block;
-  font-size: 16px;
   margin: 14px 2px;
-  -webkit-transition-duration: 0.4s; /* Safari * /
+  -webkit-transition-duration: 0.4s;
   transition-duration: 0.4s;
   cursor: pointer;
-  background-color: white;
-  color: black;
-  border: 2px solid #d66c00;
   width: 230px;
-  height: 30px;
   }
-  */
+
+  .hidden {
+    display:none;
+  }
