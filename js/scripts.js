@@ -33,8 +33,6 @@ function add(pokemon) {
 
   function showDetails(pokemon) {
     loadDetails(pokemon).then(function () {
-      // let modalText = 'Height: ' + pokemon.height;
-      // showModal(pokemon.name, modalText, pokemon.imageUrl); // version from custom modal
       showModal(pokemon);
     });
   }
@@ -128,117 +126,6 @@ function add(pokemon) {
     modalBody.append(types);
     modalBody.append(abilities);
   }
-
-
-  /* depricated modal and dialog functions from before bootstrap
-
-  let modalContainer = document.querySelector('#modal-container');
-  let dialogPromiseReject; // set in the showDialog function
-
-  function showModal(title, text, imgUrl) {
-    // Clear all existing modal content
-    modalContainer.innerHTML = '';
-
-    let modal = document.createElement('div');
-    modal.classList.add('modal');
-
-    // Add the new modal content
-    let closeButtonElement = document.createElement('button');
-    closeButtonElement.classList.add('modal-close');
-    closeButtonElement.innerText = 'Close';
-    closeButtonElement.addEventListener('click', hideModal);
-
-    let titleElement = document.createElement('h1');
-    titleElement.innerText = title;
-
-    let contentElement = document.createElement('p');
-    contentElement.innerText = text;
-
-    let imgElement = document.createElement('img');
-    imgElement.src = imgUrl;
-    imgElement.alt = 'picture of' + title;
-
-    modal.appendChild(closeButtonElement);
-    modal.appendChild(titleElement);
-    modal.appendChild(contentElement);
-    modal.appendChild(imgElement);
-    modalContainer.appendChild(modal);
-
-    modalContainer.classList.add('is-visible');
-  }
-  
-
-  function hideModal() {
-    modalContainer.classList.remove('is-visible');
-    
-    if (dialogPromiseReject) {
-      dialogPromiseReject();
-      dialogPromiseReject = null;
-    }
-  }
-
-  function showDialog(title, text) { // use the modal and extend it to show a dialog
-    showModal(title, text); // argument "imgUrl" may be missing
-    let modal = modalContainer.querySelector('.modal');
-    
-    // add a confirm and cancel button to the modal
-    let confirmButton = document.createElement('button');
-    confirmButton.classList.add('modal-confirm');
-    confirmButton.innerText = 'Confirm';
-  
-    let cancelButton = document.createElement('button');
-    cancelButton.classList.add('modal-cancel');
-    cancelButton.innerText = 'Cancel';
-  
-    modal.appendChild(confirmButton);
-    modal.appendChild(cancelButton);
-  
-    // We want to focus the confirmButton so that the user can simply press Enter
-    confirmButton.focus();
-
-    return new Promise((resolve, reject) => {
-      cancelButton.addEventListener('click', hideModal);
-      confirmButton.addEventListener('click', () => {
-        dialogPromiseReject = null; // Reset this
-        hideModal();
-        resolve();
-      });
-    
-      // This can be used to reject from the hideModal function (eg when pressing ESC key)
-      // will not be executed if the confirmButton is clicked
-      dialogPromiseReject = reject;
-
-      /* depricated v1 - Problem with this: if the user closes the modal without confirming or canceling (e.g., with the Esc key or Close button), the promise will neither resolve nor reject.
-      cancelButton.addEventListener('click', () => {
-        hideModal();
-        reject();
-      }); 
-      confirmButton.addEventListener('click', () => {
-        hideModal();
-        resolve();
-      })
-      * /
-
-    });
-  }
-
-  // hide the modal when user presses ESC key
-  window.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && modalContainer.classList.contains('is-visible')) {
-      hideModal();  
-    }
-  });
-  // hide the modal when a user clicks in the container (outside the modal)
-  modalContainer.addEventListener('click', (e) => {
-    // This is also triggered when clicking INSIDE the modal
-    // But we only want to close if the user clicks directly on the overlay
-    let target = e.target;
-    if (target === modalContainer) {
-      hideModal();
-    }
-  });
-
-  */
 
   return {
     getAll: getAll,
