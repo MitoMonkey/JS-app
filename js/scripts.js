@@ -1,41 +1,38 @@
 
 let pokemonRepository = (function () { // IIFE (to separate the variables inside from outside)
-  let pokemonList = [
-   // {name:"Butterfree", height:1.1 , type: ["bug", "flying"]},
-   // {name:'Paras', height:0.3 , type:["grass", "bug"]},
-   // {name:'Mr. Mime', height:1.3 , type:["psychic", "fairy"]},
-  ];
+  let pokemonList = []; // initialize empty array
   let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=50';
 
   function getAll() {
     return pokemonList;
   }
 
-// v3 of the add function - no validation because pokemons are added automatically from API
-function add(pokemon) {
-  pokemonList.push(pokemon);
-}
-
-//  function remove(name){
-//    // not implemented yet > indexOf(name)
-//  }
-// function findPokemon(name) {
-//   // not implemented yet
-//   filter() // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter
-// }
-
-  function buttonClick (button, pokemon) {
-    button.addEventListener('click', function(){
-      showDetails(pokemon);
-      // add/toggle the class='active' to the button ? > remove it when modal is closed
-    });
+  // add pokemon to repository
+  function add(pokemon) {
+    pokemonList.push(pokemon);
   }
 
-  function showDetails(pokemon) {
-    loadDetails(pokemon).then(function () {
-      showModal(pokemon);
+  //  function remove(name){
+  //    // not implemented yet > indexOf(name)
+  //  }
+
+  // filter the list of pokemon
+    // alternative option: filter() function > https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter
+  let searchInput = document.querySelector("#filter_pokemons");
+  //add event listener to search bar
+  searchInput.addEventListener("input", function () {
+    let listPokemon = document.querySelectorAll("li");
+    let value = searchInput.value.toUpperCase();
+
+    listPokemon.forEach(function (pokemon) {
+      if (pokemon.innerText.toUpperCase().indexOf(value) > -1) {
+        pokemon.style.display = "";
+      } else {
+        pokemon.style.display = "none";
+      }
     });
-  }
+  });
+
 
   // creating a button as li element for each pokemon
   function addListItem(pokemon) {
@@ -55,13 +52,26 @@ function add(pokemon) {
     let listItem = document.createElement('li');
     let button = document.createElement('button');
     button.innerText = pokemon.name;
-    button.classList.add('repoItemButton', 'list-group-item', 'list-group-item-action', 'btn', 'btn-info', 'text-center');
-    button.setAttribute("type", "button");
+    button.classList.add('list-group-item', 'list-group-item-action', 'list-group-item-success', 'mb-2', 'text-center');
+    // button.setAttribute("type", "button");
     button.setAttribute("data-toggle", "modal");
     button.setAttribute("data-target", "#pokemonDetailsModal")
     listItem.appendChild(button);
     repoList.appendChild(listItem);
     buttonClick(button, pokemon); //add the eventListener    
+  }
+
+  function buttonClick (button, pokemon) {
+    button.addEventListener('click', function(){
+      showDetails(pokemon);
+      // add/toggle the class='active' to the button ? > remove it when modal is closed
+    });
+  }
+
+  function showDetails(pokemon) {
+    loadDetails(pokemon).then(function () {
+      showModal(pokemon);
+    });
   }
 
 // load the list of pokemon from the API
@@ -92,8 +102,8 @@ function add(pokemon) {
       item.imageUrlBack = details.sprites.back_default;
       item.height = details.height;
       item.weight = details.weight;
-      item.types = details.types.map(value => value.type.name);
-      item.abilities = details.abilities.map(value => value.ability.name);
+      item.types = details.types.map(value => (' ' + value.type.name));
+      item.abilities = details.abilities.map(value => (' ' + value.ability.name));
     }).catch(function (e) {
       console.error(e);
     });
@@ -101,17 +111,17 @@ function add(pokemon) {
 
   function showModal(item) {
     let modalBody = $('.modal-body');
-    let modalHeader = $('.modal-header');
+    // let modalHeader = $('.modal-header');
     let modalTitle = $('.modal-title');
 
     // empty the modal
     modalBody.empty();
     modalTitle.empty();
 
-    let name = $('<h1>' + item.name + '</h1>');
-    let imgFront =$("<img class='modal-img' style='width:50%'>");
+    let name = $('<h2>' + item.name + '</h2>');
+    let imgFront =$("<img class='modal-img' style='width:50%' alt='front of " + item.name + "' " + ">");
     imgFront.attr('src', item.imageUrlFront);
-    let imgBack =$("<img class='modal-img' style='width:50%'>");
+    let imgBack =$("<img class='modal-img' style='width:50%' alt='back of " + item.name + "' " + ">");
     imgBack.attr('src', item.imageUrlBack);
     let height = $("<p>" + 'Height: ' + item.height + '</p>');
     let weight = $('<p>' + 'Weight: ' + item.weight + '</p>')

@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap"> -->
     <link rel="stylesheet" type="text/css" href="css/styles.css">
-    <title>Pokédex JS App</title>
+    <title>Pokédex App</title>
   </head>
 
   
@@ -34,7 +34,13 @@
 
     <main class="container">
       <div class="row justify-content-center">
-        <h1 class="h1">Pokédex JS App</h1>
+        <h1 class="h1">Pokédex App</h1>
+        by MitoChonder
+      </div>
+
+      <div class="row justify-content-center"></div>
+        <h3 class="h3 col">List of Pokemons</h2>
+        <a href="https://pokeapi.co" class="col">API source: https://pokeapi.co</a>
       </div>
 
       <!-- button to test the modal 
@@ -65,22 +71,19 @@
         </div>
       </div>
 
+      <!-- Filter bar -->
+      <label for="filter_pokemons" class="hidden">Filter Pokémons by name</label>
+			<input type="search" class="form-control form-inline" id="filter_pokemons" placeholder="Filter Pokemon by name" aria-label="Search pokemon by name"/>
+       
       <!-- list of pokemon, each shown as a button -->
-      <div class="row justify-content-center list-group">
-        
-        <ul class="list-unstyled pokemonListBox pokemon-list col-3">
-          <script src="https://cdn.jsdelivr.net/npm/promise-polyfill@8/dist/polyfill.min.js"></script>
-          <!-- the local version would be: <script src="js/promise-polyfill.js"></script> -->
-          <script src="js/fetch-polyfill.js"></script>
-          <script src="js/scripts.js"></script>
-        </ul>
-        
+      <div class="row justify-content-center">
+        <ul class="list-group list-unstyled pokemon-list"></ul>  
       </div>
 
     </main>
 
     <footer class="container">
-      <div class="row">
+      <div class="row justify-content-center">
         <span class="footer__item">Find the project on Github:   </span>
         <a href="https://github.com/MitoMonkey/JS-app" target="_blank" class="footer__item"><img src="img/github_logo.svg" alt="Github icon"></a>
       </div>
@@ -90,7 +93,11 @@
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-
+    
+    <script src="https://cdn.jsdelivr.net/npm/promise-polyfill@8/dist/polyfill.min.js"></script>
+    <!-- the local version would be: <script src="js/promise-polyfill.js"></script> -->
+    <script src="js/fetch-polyfill.js"></script>
+    <script src="js/scripts.js"></script>
   </body>
 
 </html>
