@@ -33,10 +33,9 @@ function add(pokemon) {
 
   function showDetails(pokemon) {
     loadDetails(pokemon).then(function () {
-      // console.log(pokemon);
-      let modalText = 'Height: ' + pokemon.height;
-      // <img src="http://wikipedia.com/static/favicon/wikipedia.ico" alt="Wikipedia Favicon"></img>
-      showModal(pokemon.name, modalText, pokemon.imageUrl);
+      // let modalText = 'Height: ' + pokemon.height;
+      // showModal(pokemon.name, modalText, pokemon.imageUrl); // version from custom modal
+      showModal(pokemon);
     });
   }
 
@@ -54,17 +53,17 @@ function add(pokemon) {
     buttonClick(button, pokemon); //add the eventListener
     */
 
-    
     let repoList = document.querySelector('.pokemon-list');
     let listItem = document.createElement('li');
     let button = document.createElement('button');
     button.innerText = pokemon.name;
-    button.classList.add('repoItemButton', 'list-group-item', 'list-group-item-action', 'btn', 'btn-info', 'text-center', 'col-3');
+    button.classList.add('repoItemButton', 'list-group-item', 'list-group-item-action', 'btn', 'btn-info', 'text-center');
     button.setAttribute("type", "button");
+    button.setAttribute("data-toggle", "modal");
+    button.setAttribute("data-target", "#pokemonDetailsModal")
     listItem.appendChild(button);
     repoList.appendChild(listItem);
-    buttonClick(button, pokemon); //add the eventListener
-    
+    buttonClick(button, pokemon); //add the eventListener    
   }
 
 // load the list of pokemon from the API
@@ -90,9 +89,13 @@ function add(pokemon) {
       return response.json();
     }).then(function (details) {
       // Now we add the details to the item
-      item.imageUrl = details.sprites.front_default;
+      // item.imageUrl = details.sprites.front_default;
+      item.imageUrlFront = details.sprites.front_default;
+      item.imageUrlBack = details.sprites.back_default;
       item.height = details.height;
-      item.types = details.types;
+      item.weight = details.weight;
+      item.types = details.types.map(value => value.type.name);
+      item.abilities = details.abilities.map(value => value.ability.name);
     }).catch(function (e) {
       console.error(e);
     });

@@ -13,29 +13,47 @@
 
   
   <body>
+    <nav class="navbar navbar-expand-sm navbar-light bg-light">
+      <a class="navbar-brand" href="#">Navbar</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav justify-content-center">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Features</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Pricing</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
     <main class="container">
-      <div class="row">
+      <div class="row justify-content-center">
         <h1 class="h1">Pokédex JS App</h1>
       </div>
 
-      <!-- button to test the modal -->
-      <div class="row">
-        <!-- <button id='show-modal'>Show modal</button>
-        <button id='show-dialog'>Show dialog</button> -->
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+      <!-- button to test the modal 
+      <div class="row justify-content-center">
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#pokemonDetailsModal">
           Launch demo modal
         </button>
-      </div> 
+      </div> -->
       
       <!-- Custom modal 
       <div id='modal-container'></div> -->
 
       <!-- Bootstrap Modal -->
-      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal fade" id="pokemonDetailsModal" tabindex="-1" role="dialog" aria-labelledby="pokemonDetailsModalTitle" aria-hidden="true">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+              <h5 class="modal-title" id="pokemonDetailsModalTitle">Modal title</h5>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
@@ -52,13 +70,15 @@
       </div>
 
       <!-- list of pokemon, each shown as a button -->
-      <div class="row list-group">
-        <ul class="list-unstyled pokemonListBox pokemon-list">
+      <div class="row justify-content-center list-group">
+        
+        <ul class="list-unstyled pokemonListBox pokemon-list col-3">
           <script src="https://cdn.jsdelivr.net/npm/promise-polyfill@8/dist/polyfill.min.js"></script>
           <!-- the local version would be: <script src="js/promise-polyfill.js"></script> -->
           <script src="js/fetch-polyfill.js"></script>
           <script src="js/scripts.js"></script>
         </ul>
+        
     </div>
 
     </main>
