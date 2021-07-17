@@ -96,8 +96,6 @@ let pokemonRepository = (function () { // IIFE (to separate the variables inside
     return fetch(url).then(function (response) {
       return response.json();
     }).then(function (details) {
-      // Now we add the details to the item
-      // item.imageUrl = details.sprites.front_default;
       item.imageUrlFront = details.sprites.front_default;
       item.imageUrlBack = details.sprites.back_default;
       item.height = details.height;
@@ -143,9 +141,7 @@ let pokemonRepository = (function () { // IIFE (to separate the variables inside
     addListItem: addListItem,
     loadList: loadList,
     loadDetails: loadDetails
-    // remove: remove,
-    // filter: findPokemon,
-    // printRepo: printRepository(pokemonList)
+    // remove: remove
   }
 })(); // End if IIFE
 
