@@ -2,8 +2,16 @@ body {
   background: #555;
 }
 
-h1, h3 {
+h3 {
   color: aliceblue;
+}
+
+.yellow {
+  color: #ffcb05;
+}
+
+.small {
+  font-size: small;
 }
 
 
