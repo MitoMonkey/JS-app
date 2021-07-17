@@ -1,5 +1,8 @@
 body {
   background: #555;
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
 }
 
 h3 {
@@ -14,7 +17,6 @@ h3 {
   font-size: small;
 }
 
-
 /* layout filter pokemon */
 .form-control {
   text-align: center;
@@ -26,6 +28,6 @@ h3 {
   width: 230px;
   }
 
-  .hidden {
-    display:none;
-  }
+.hidden {
+  display:none;
+}

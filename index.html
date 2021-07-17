@@ -22,11 +22,6 @@
 
     <main class="container">
 
-      <div class="row justify-content-center"></div>
-        <h3 class="h3 col">List of Pokemons</h2>
-        <a href="https://pokeapi.co" class="col">API source: https://pokeapi.co</a>
-      </div>
-
       <!-- Bootstrap Modal -->
       <div class="modal fade" id="pokemonDetailsModal" tabindex="-1" role="dialog" aria-labelledby="pokemonDetailsModalTitle" aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -48,9 +43,17 @@
         </div>
       </div>
 
+      <div class="row">
+        <div class="col">
+          <h3 class="h3">List of Pokemons</h2>
+          <a href="https://pokeapi.co">API source: https://pokeapi.co</a>
+        </div>
+      </div>
+
       <!-- Filter bar -->
       <div class="row">
-        <div class="col justify-content-center">
+        <div class="col">
+          
           <label for="filter_pokemons" class="hidden">Filter Pokémons by name</label>
 			    <input type="search" class="form-control form-inline" id="filter_pokemons" placeholder="Filter Pokemon by name" aria-label="Search pokemon by name"/>
         </div>
