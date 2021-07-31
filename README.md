@@ -19,7 +19,7 @@ For this Pokedéx app:
   * then bootstrap was integrated and all functions and styles adapted
 * How to get the project running
 * Project dependencies (e.g., JavaScript version, ESLint rules)
-  * JSlint 1.5.1 > IS NOT WORKING CORRECTLY YET!!!
+  * ESlint Version 2.1.22
   * Frameworks: jQuery first, then Popper.js, then Bootstrap JS
 * Which API the project uses
   * ( list of open APIs: https://public-apis.xyz/
