@@ -7,9 +7,22 @@ body {
 
 h3 {
   color: aliceblue;
+  margin-top: 10px;
 }
 
 .yellow {
+  color: #ffcb05;
+}
+
+.text {
+  color: aliceblue;
+}
+
+a {
+  color: #c3e6cb;
+}
+
+a:hover {
   color: #ffcb05;
 }
 
@@ -21,11 +34,10 @@ h3 {
 .form-control {
   text-align: center;
   display: inline-block;
-  margin: 14px 2px;
+  margin: 14px;
   -webkit-transition-duration: 0.4s;
   transition-duration: 0.4s;
   cursor: pointer;
-  width: 230px;
   }
 
 .hidden {

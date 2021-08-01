@@ -35,8 +35,8 @@
               ...
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary">Save changes</button>
+              <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+              <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
             </div>
           </div>
         </div>
@@ -45,14 +45,13 @@
       <div class="row">
         <div class="col">
           <h3 class="h3">List of Pokemons</h2>
-          <a href="https://pokeapi.co">API source: https://pokeapi.co</a>
+          <span class="text">API source:</span> <a href="https://pokeapi.co">https://pokeapi.co</a>
         </div>
       </div>
 
       <!-- Filter bar -->
-      <div class="row">
-        <div class="col">
-          
+      <div class="row justify-content-center">
+        <div class="col-3 d-inline-flex">
           <label for="filter_pokemons" class="hidden">Filter Pokémons by name</label>
 			    <input type="search" class="form-control form-inline" id="filter_pokemons" placeholder="Filter Pokemon by name" aria-label="Search pokemon by name"/>
         </div>
@@ -60,14 +59,14 @@
 
       <!-- list of pokemon, each shown as a button -->
       <div class="row justify-content-center">
-        <ul class="list-group list-unstyled pokemon-list col-3"></ul>  
+        <ul class="list-group list-unstyled pokemon-list col-3"></ul>
       </div>
 
     </main>
 
     <footer class="container">
       <div class="row justify-content-center">
-        <span class="footer__item">Find the project on Github:   </span>
+        <span class="footer__item text">Find the project on Github:   </span>
         <a href="https://github.com/MitoMonkey/JS-app" target="_blank" class="footer__item"><img src="img/github_logo.svg" alt="Github icon"></a>
       </div>
     </footer>
