@@ -6,6 +6,7 @@ Pokedéx app
   * create DOM elements (a list of buttons) for each element from the API
   * manually create a modal and a dialog window that shows name, height and picture of a pokemon when clicked
   * integrate bootstrap and adapt all functions and styles
+  * minify JS and CSS files and organize them into the folders "src" and "dist"
 
 * development environment
   * VS Code 1.58.2
