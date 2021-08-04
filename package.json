@@ -1,0 +1,28 @@
+{
+  "name": "pokemon-app",
+  "version": "1.0.0",
+  "description": "A simple JS app showing a list of Pokemon from an external API in the form of buttons that open a modal with details.",
+  "main": "index.html",
+  "dependencies": {
+    "stylelint": "^13.13.1",
+    "stylelint-config-standard": "^22.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MitoMonkey/JS-app.git"
+  },
+  "keywords": [
+    "jQuerry",
+    "bootstrap"
+  ],
+  "author": "Mito CodingMonkey",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MitoMonkey/JS-app/issues"
+  },
+  "homepage": "https://github.com/MitoMonkey/JS-app#readme"
+}

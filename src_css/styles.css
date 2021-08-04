@@ -34,15 +34,15 @@ a:hover {
 .form-control {
   text-align: center;
   display: inline-block;
-  margin: 14px;
   -webkit-transition-duration: 0.4s;
+  -o-transition-duration: 0.4s;
   transition-duration: 0.4s;
   cursor: pointer;
   padding: 0;
   max-width: 300px;
   min-width: 250px;
   margin: 8px auto;
-  }
+}
 
 .col-3 {
   padding: 0;
@@ -50,5 +50,5 @@ a:hover {
 }
 
 .hidden {
-  display:none;
+  display: none;
 }
