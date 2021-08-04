@@ -8,5 +8,8 @@
     ],
     "rules": {
       "quotes": ["error", "single"]
+    },
+    "globals": {
+      "fetch": false
     }
 }
