@@ -1,84 +1,94 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap"> -->
-    <link rel="stylesheet" type="text/css" href="dist/styles.min.css">
-    <title>Pokédex App</title>
-  </head>
 
-  
-  <body>
-    <nav class="navbar navbar-expand-sm navbar-dark bg-dark d-print">
-      <div class="navbar-brand">
-        <span class="h1 yellow">Pokédex App</span>
-      </div>
-      <span class="small navbar-text align-self-baseline">by Mito CodingMonkey</span>
-    </nav>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap"> -->
+  <link rel="stylesheet" type="text/css" href="dist/styles.min.css">
+  <title>Pokédex App</title>
+</head>
 
-    <main class="container">
 
-      <!-- Bootstrap Modal -->
-      <div class="modal fade" id="pokemonDetailsModal" tabindex="-1" role="dialog" aria-labelledby="pokemonDetailsModalTitle" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="pokemonDetailsModalTitle">Modal title</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              ...
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
-              <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
-            </div>
+<body>
+  <nav class="navbar navbar-expand-sm navbar-dark bg-dark d-print">
+    <div class="navbar-brand">
+      <span class="h1 yellow">Pokédex App</span>
+    </div>
+    <span class="small navbar-text align-self-baseline">by Mito CodingMonkey</span>
+  </nav>
+
+  <main class="container">
+
+    <!-- Bootstrap Modal -->
+    <div class="modal fade" id="pokemonDetailsModal" tabindex="-1" role="dialog"
+      aria-labelledby="pokemonDetailsModalTitle" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="pokemonDetailsModalTitle">Modal title</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            ...
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+            <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
           </div>
         </div>
       </div>
+    </div>
 
-      <div class="row">
-        <div class="col">
-          <h3 class="h3">List of Pokemons</h2>
-          <span class="text">API source:</span> <a href="https://pokeapi.co">https://pokeapi.co</a>
-        </div>
+    <div class="row">
+      <div class="col">
+        <h3 class="h3">List of Pokemons</h3>
+        <span class="text">API source:</span> <a href="https://pokeapi.co">https://pokeapi.co</a>
       </div>
+    </div>
 
-      <!-- Filter bar -->
-      <div class="row justify-content-center">
-        <div class="col-3">
-          <label for="filter_pokemons" class="hidden">Filter Pokémons by name</label>
-			    <input type="search" class="form-control form-inline" id="filter_pokemons" placeholder="Filter Pokemon by name" aria-label="Search pokemon by name"/>
-        </div>
+    <!-- Filter bar -->
+    <div class="row justify-content-center">
+      <div class="col-3">
+        <label for="filter_pokemons" class="hidden">Filter Pokémons by name</label>
+        <input type="search" class="form-control form-inline" id="filter_pokemons" placeholder="Filter Pokemon by name"
+          aria-label="Search pokemon by name" />
       </div>
+    </div>
 
-      <!-- list of pokemon, each shown as a button -->
-      <div class="row justify-content-center">
-        <ul class="list-group list-unstyled pokemon-list col-3"></ul>
-      </div>
+    <!-- list of pokemon, each shown as a button -->
+    <div class="row justify-content-center">
+      <ul class="list-group list-unstyled pokemon-list col-3"></ul>
+    </div>
 
-    </main>
+  </main>
 
-    <footer class="container">
-      <div class="row justify-content-center">
-        <span class="footer__item text">Find the project on Github:   </span>
-        <a href="https://github.com/MitoMonkey/JS-app" target="_blank" class="footer__item"><img src="img/github_logo.svg" alt="Github icon"></a>
-      </div>
-    </footer>
-    
-    <!-- Frameworks: jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    
-    <script src="https://cdn.jsdelivr.net/npm/promise-polyfill@8/dist/polyfill.min.js"></script>
-    <script src="dist/fetch-polyfill.js"></script>
-    <script src="dist/scripts.min.js"></script>
-  </body>
+  <footer class="container">
+    <div class="row justify-content-center">
+      <span class="footer__item text">Find the project on Github: </span>
+      <a href="https://github.com/MitoMonkey/JS-app" target="_blank" class="footer__item"><img src="img/github_logo.svg"
+          alt="Github icon"></a>
+    </div>
+  </footer>
+
+  <!-- Frameworks: jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/promise-polyfill@8/dist/polyfill.min.js"></script>
+  <script src="dist/fetch-polyfill.js"></script>
+  <script src="dist/scripts.min.js"></script>
+</body>
 
 </html>
