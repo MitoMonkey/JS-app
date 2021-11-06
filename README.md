@@ -6,7 +6,11 @@ This app was created as a study project during my Fullstack Webdeveloper course 
 # live demo
 [Pokedex app](https://mitomonkey.github.io/Pokedex-App/)
 
-![Screenshot](./img/Screenshot.png)
+## Screenshots
+<p float="left">
+<img src="./img/Screenshot_main.png" width="350">
+<img src="./img/Screenshot_modal.png" width="350">
+</p>
 
 ## The study goals were to
 * Created a list of pokemon as an object and implement functions to print the list to the console as well as add a new pokemon
