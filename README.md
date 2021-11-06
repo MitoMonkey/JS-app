@@ -27,6 +27,9 @@ This app was created as a study project during my Fullstack Webdeveloper course 
 * Install node.js and npm via nvp to get ESLinter and Stylelinter up and running
 * Fix all linting errors, minify JS and CSS files and organize them into the folders "src" and "dist"
 
+## Main technologies used
+HTML, CSS, JavaScript, Bootstrap, jQuery
+
 ## Development environment
   * VS Code 1.58.2
   * ESlint Version 2.1.22 (with mainly recommended rules)
