@@ -28,7 +28,7 @@ This app was created as a study project during my Fullstack Webdeveloper course 
 * Fix all linting errors, minify JS and CSS files and organize them into the folders "src" and "dist"
 
 ## Main technologies used
-HTML, CSS, JavaScript, Bootstrap, jQuery
+HTML, CSS, JavaScript, Bootstrap, jQuery, GitHub-pages
 
 ## Development environment
   * VS Code 1.58.2
