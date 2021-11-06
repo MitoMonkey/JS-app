@@ -12,11 +12,17 @@ This app was created as a study project during my Fullstack Webdeveloper course 
 <img src="./img/Screenshot_modal.png" width="350">
 </p>
 
-## The study goals were to
-* Created a list of pokemon as an object and implement functions to print the list to the console as well as add a new pokemon
+# Features
+* Load Pokemon data from a public external API
+* Render a button for each Pokemon
+* Open a modal when button is clicked, to show details about the Pokemon
+* Filter bar to search Pokemon by name
+
+## Study goals
+* Create a list of pokemon and implement functions to print the list to the console as well as add a new pokemon
 * Substitut the list with data from an external API ((https://pokeapi.co/)[https://pokeapi.co/])
 * Create DOM elements (a list of buttons) for each element from the API
-* Manually create a modal and a dialog window that shows name, height and picture of a pokemon when clicked
+* Manually create a modal (and a dialog) that shows name, height and picture of a pokemon when clicked
 * Integrate bootstrap and adapt all functions and styles (as well as creating a nav-bar and replacing the modal with the bootstrap template)
 * Install node.js and npm via nvp to get ESLinter and Stylelinter up and running
 * Fix all linting errors, minify JS and CSS files and organize them into the folders "src" and "dist"
